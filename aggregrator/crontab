@@ -1,0 +1,1 @@
+*/1 * * * * env > /cron-env.log && /usr/local/bin/python /task.py "$(date -Iseconds -d '5 minutes ago')" "$(date -Iseconds)" >> /logfile 2>&1

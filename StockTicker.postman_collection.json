@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "b8db289e-dbd7-4f51-b050-179fb73058e3",
+		"name": "StockTicker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16786991",
+		"_collection_link": "https://ghosteeddy.postman.co/workspace/GhostE-Workspace~e36675f3-8e52-494e-845c-8e8905e2d72c/collection/16786991-b8db289e-dbd7-4f51-b050-179fb73058e3?action=share&source=collection_link&creator=16786991"
+	},
+	"item": [
+		{
+			"name": "Fetch1min",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"min_price\": \"1{{$randomInt}}.1234567890\",\r\n  \"max_price\": \"1{{$randomInt}}.9876543210\",\r\n  \"first_price\": \"1{{$randomInt}}.5432109876\",\r\n  \"last_price\": \"1{{$randomInt}}.6789012345\",\r\n  \"bar_time\": \"2024-12-30T12:18:00Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/stats/:symbol/fetch_onemin?start=2024-12-30T11:00:00Z&end=2024-12-30T12:20:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"stats",
+						":symbol",
+						"fetch_onemin"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2024-12-30T11:00:00Z"
+						},
+						{
+							"key": "end",
+							"value": "2024-12-30T12:20:00Z"
+						}
+					],
+					"variable": [
+						{
+							"key": "symbol",
+							"value": "SCBX"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update1min",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"min_price\": \"1{{$randomInt}}.1234567890\",\r\n  \"max_price\": \"1{{$randomInt}}.9876543210\",\r\n  \"first_price\": \"1{{$randomInt}}.5432109876\",\r\n  \"last_price\": \"1{{$randomInt}}.6789012345\",\r\n  \"bar_time\": \"2024-12-30T12:25:00Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/stats/:symbol/update_onemin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"stats",
+						":symbol",
+						"update_onemin"
+					],
+					"variable": [
+						{
+							"key": "symbol",
+							"value": "SCBX"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
